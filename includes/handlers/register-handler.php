@@ -23,6 +23,7 @@
 	}
 
 	if (isset($_POST['registerButton'])){
+		// getting data
 		$username = sanitizeFormUsername($_POST['username']);
 
 		$firstName = sanitizeFormString($_POST['firstName']);
@@ -33,5 +34,8 @@
 
 		$password = sanitizeFormPassword($_POST['password']);
 		$password2 = sanitizeFormPassword($_POST['password2']);
+
+		// validating data
+		$account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
 	}
 ?>
