@@ -36,6 +36,10 @@
 		$password2 = sanitizeFormPassword($_POST['password2']);
 
 		// validating data
-		$account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
+		$wasOkay = $account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
+
+		if ($wasOkay == true){
+			header("Location: index.php");
+		}
 	}
 ?>
